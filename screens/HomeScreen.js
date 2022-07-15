@@ -39,11 +39,8 @@ const HomeScreen = () => {
       });
   }, []);
 
-  // console.log(featuredCategories);
-
   return (
     <SafeAreaView className="bg-white pt-5">
-      {/* header */}
       <View className="flex-row pb-3 items-center mx-4 space-x-2">
         <Image source={logo} className="h-7 w-7 bg-gray-300 p-5 rounded-full" />
         <View className="flex-1">

@@ -14,8 +14,6 @@ const DishRow = ({ id, name, description, price, image }) => {
   const [isPressed, setIsPressed] = useState(false);
   const items = useSelector((state) => selectItemsWithId(state, id));
 
-  console.log(items);
-
   const dispatch = useDispatch();
 
   const AddToCart = () => {
@@ -59,7 +57,10 @@ const DishRow = ({ id, name, description, price, image }) => {
       {isPressed && (
         <View className="bg-white px-4">
           <View className="flex-row items-center space-x-2 pb-3 ">
-            <TouchableOpacity onPress={removeFromCart}>
+            <TouchableOpacity
+              onPress={removeFromCart}
+              disabled={items.length === 0}
+            >
               <MinusCircleIcon
                 size={35}
                 color={items.length > 0 ? "#F86874" : "gray"}
