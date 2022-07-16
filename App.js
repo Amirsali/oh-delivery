@@ -9,6 +9,7 @@ import { store } from "./store";
 import CartScreen from "./screens/CartScreen";
 import "react-native-gesture-handler";
 import PreparingOrderScreen from "./screens/PreparingOrderScreen";
+import DeliveryScreen from "./screens/DeliveryScreen";
 
 const Stack = createStackNavigator();
 
@@ -32,7 +33,8 @@ export default function App() {
               <Stack.Screen
                 name="PrepareOrder"
                 component={PreparingOrderScreen}
-              ></Stack.Screen>
+              />
+              <Stack.Screen name="Delivery" component={DeliveryScreen} />
             </Stack.Group>
           </Stack.Navigator>
         </TailwindProvider>

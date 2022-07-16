@@ -45,6 +45,9 @@ const CartScreen = () => {
             <Text className="text-lg font-bold text-center mt-3">
               Current items
             </Text>
+            <Text className="text-center text-gray-400">
+              {restaurant.title}
+            </Text>
           </View>
 
           <TouchableOpacity

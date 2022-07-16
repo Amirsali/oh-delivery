@@ -1,7 +1,17 @@
-import { View, Text, SafeAreaView } from "react-native";
-import React from "react";
+import { SafeAreaView } from "react-native";
+import React, { useEffect } from "react";
 import * as Animatable from "react-native-animatable";
+import * as Progress from "react-native-progress";
+import { useNavigation } from "@react-navigation/native";
+
 const PreparingOrderScreen = () => {
+  const navigation = useNavigation();
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate("Delivery");
+    }, 3500);
+  }, [navigation]);
+
   return (
     <SafeAreaView className="flex-1 bg-[#cd6465] justify-center items-center ">
       <Animatable.Image
@@ -11,9 +21,20 @@ const PreparingOrderScreen = () => {
         iterationCount={1}
         easing="ease-in-out"
       />
-      <Text className="text-white font-extrabold bottom-20 justify-center">
+      <Animatable.Text
+        animation="slideInUp"
+        iterationCount={1}
+        className="text-white font-extrabold bottom-20 justify-center"
+      >
         Your order is being prepared. Please wait.
-      </Text>
+      </Animatable.Text>
+
+      <Progress.Bar
+        animationType="spring"
+        size={60}
+        indeterminate={true}
+        color="white"
+      />
     </SafeAreaView>
   );
 };
