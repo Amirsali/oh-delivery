@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import CartScreen from "./screens/CartScreen";
 import "react-native-gesture-handler";
+import PreparingOrderScreen from "./screens/PreparingOrderScreen";
 
 const Stack = createStackNavigator();
 
@@ -17,22 +18,21 @@ export default function App() {
       <Provider store={store}>
         <TailwindProvider>
           <Stack.Navigator>
-            <Stack.Group>
-              <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-                screenOptions={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="Restaurant"
-                component={RestaurantScreen}
-                screenOptions={{ headerShown: false }}
-              />
+            <Stack.Group screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Restaurant" component={RestaurantScreen} />
             </Stack.Group>
             <Stack.Group
-              screenOptions={{ headerShown: false, presentation: "modal" }}
+              screenOptions={{
+                headerShown: false,
+                presentation: "modal",
+              }}
             >
               <Stack.Screen name="Cart" component={CartScreen} />
+              <Stack.Screen
+                name="PrepareOrder"
+                component={PreparingOrderScreen}
+              ></Stack.Screen>
             </Stack.Group>
           </Stack.Navigator>
         </TailwindProvider>

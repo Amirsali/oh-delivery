@@ -28,6 +28,7 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const [groupedItemsInCart, setGroupedItemsInCart] = useState([]);
 
+  //   grouping items in cart
   useEffect(() => {
     const groupedItems = items.reduce((results, item) => {
       (results[item.id] = results[item.id] || []).push(item);
@@ -35,8 +36,6 @@ const CartScreen = () => {
     }, {});
     setGroupedItemsInCart(groupedItems);
   }, [items]);
-
-  //   console.log(groupedItemsInCart);
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -119,7 +118,10 @@ const CartScreen = () => {
             </Text>
           </View>
 
-          <TouchableOpacity className="bg-[#F86874] p-4 rounded-lg">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("PrepareOrder")}
+            className="bg-[#F86874] p-4 rounded-lg"
+          >
             <Text className="text-center text-white text-lg font-bold">
               Place Order
             </Text>
